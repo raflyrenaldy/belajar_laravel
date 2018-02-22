@@ -37,7 +37,7 @@
   <![endif]-->
 </head>
 
-<body class="sticky-header left-side-collapsed">
+<body class="sticky-header">
 
 <section>
     <!-- left side start-->
@@ -76,14 +76,13 @@
             <!--sidebar nav start-->
             <ul class="nav nav-pills nav-stacked custom-nav">
                 <li class="active"><a href="{{URL::to('/')}}"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
-                <li><a href=""><i class="fa fa-laptop"></i> <span>Layouts</span></a>
+                <li><a href="{{URL::to('/client')}}"><i class="fa fa-user"></i> <span>Client</span></a>
                     
                 </li>
-                <li><a href=""><i class="fa fa-book"></i> <span>UI Elements</span></a>
-                 
-                </li>
-               
-                <li><a href="{{ route('logout') }}"><i class="fa fa-sign-in"></i> <span>Logout</span></a></li>
+                <li><a href="{{URL::to('/room')}}"><i class="fa fa-plus-square-o"></i> <span> UI Room</span></a></li>
+                <li><a href="{{URL::to('/workspace')}}"><i class="fa fa-briefcase"></i> <span> WorkSpace</span></a></li>
+                  <li><a href=""><i class="fa fa-video-camera"></i> <span> Cctv</span></a></li>
+                <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
 
             </ul>
             <!--sidebar nav end-->

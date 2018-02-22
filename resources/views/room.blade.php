@@ -313,7 +313,7 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td class="center"></td>
+                    <td></td>
                     <td><a class="edit" href="javascript:;">Edit</a></td>
                     <td><a class="delete" href="javascript:;">Delete</a></td>
                 </tr>

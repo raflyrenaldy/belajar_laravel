@@ -310,9 +310,9 @@
                 </thead>
                 <tbody>
                 <tr class="">
+                    <td>22</td>
                     <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>345</td>
                     <td class="center"></td>
                     <td><a class="edit" href="javascript:;">Edit</a></td>
                     <td><a class="delete" href="javascript:;">Delete</a></td>

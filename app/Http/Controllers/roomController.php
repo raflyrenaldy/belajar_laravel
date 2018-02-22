@@ -13,6 +13,10 @@ class roomController extends Controller
         
         return view('home', compact('rooms'));
     }
+      public function room()
+    {
+        return view('room');
+    }
  
     /**
      * Show the form for creating a new resource.

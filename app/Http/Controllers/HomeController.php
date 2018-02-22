@@ -25,4 +25,18 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function client()
+    {
+        return view('client');
+    }
+     public function room()
+    {
+        return view('room');
+    }
+    
+     public function workspace()
+    {
+        return view('workspace');
+    }
 }

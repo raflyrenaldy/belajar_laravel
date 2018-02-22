@@ -248,7 +248,7 @@
                                     </div>
                                     <div class="modal-body">
 
-                                        <form class="form-horizontal" role="form" method="post" action="{{url('lost')}}">
+                                        <form class="form-horizontal" role="form" method="post" action="{{url('client')}}">
                                             <div class="form-group">
                                                  {{csrf_field()}}
                                                 <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Nama</label>
@@ -300,24 +300,28 @@
                 <table class="table table-striped table-hover table-bordered" id="editable-sample">
                 <thead>
                 <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Points</th>
-                    <th>Status</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    <th>Id Client</th>
+                    <th>Name</th>
+                    <th>No Account</th>
+                    <th>Join Date</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
+                    <?php $i=1; ?>
+                     @foreach($clients as $post)
                 <tr class="">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="center"></td>
-                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                    <td><a class="delete" href="javascript:;">Delete</a></td>
+                    <td>{{$post['id']}}</td>
+                    <td>{{$post['name']}}</td>
+                    <td>{{$post['no_account']}}</td>
+                    <td>{{$post['join_date']}}</td>
+                    <td><a class="edit" href="javascript:;">Edit</a>< |
+                    <a class="delete" href="javascript:;">Delete</a></td>
                 </tr>
-                
+                 <?php 
+                $i++;
+                ?>
+                 @endforeach
                 </tbody>
                 </table>
                 </div>

@@ -20,3 +20,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::get('/', 'HomeController@index');
+Route::get('/client', 'clientController@client')->name('client');
+Route::resource('client', 'clientController');
+Route::get('/workspace', 'wsController@workspace')->name('workspace');
+Route::resource('workspace', 'wsController');
+Route::get('/room', 'roomController@room')->name('room');
+Route::resource('room', 'roomController');
+
+
+
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');

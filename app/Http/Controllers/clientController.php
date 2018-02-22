@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\clients;
-use Illuminate\Http\Request;
 
+use Illuminate\Http\Request;
+use App\clients;
 class clientController extends Controller
 {
     public function index()
@@ -11,6 +11,10 @@ class clientController extends Controller
          $clients = clients::all()->toArray();
         
         return view('home', compact('clients'));
+    }
+      public function client()
+    {
+        return view('client');
     }
  
     /**

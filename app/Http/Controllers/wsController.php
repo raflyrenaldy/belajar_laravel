@@ -14,6 +14,10 @@ class wsController extends Controller
         return view('home', compact('workspaces'));
     }
  
+   public function workspace()
+    {
+        return view('workspace');
+    }
     /**
      * Show the form for creating a new resource.
      *
