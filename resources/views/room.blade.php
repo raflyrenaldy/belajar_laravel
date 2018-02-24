@@ -300,24 +300,26 @@
                 <table class="table table-striped table-hover table-bordered" id="editable-sample">
                 <thead>
                 <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Points</th>
-                    <th>Status</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    <th>No</th>
+                    <th>Id Room</th>
+                    <th>Room</th>
+                   
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
+                       <?php $i=1; ?>
+                     @foreach($rooms as $post)
                 <tr class="">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                    <td><a class="delete" href="javascript:;">Delete</a></td>
+                    <td>{{$i}}</td>
+                    <td>{{$post['room_id']}}</td>
+                    <td>{{$post['room']}}</td>
+                    <td><a class="edit" href="javascript:;">Edit</a> | 
+                    <a class="delete" href="javascript:;">Delete</a></td>
                 </tr>
-                
+                <?php $i++;
+                 ?>
+                 @endforeach
                 </tbody>
                 </table>
                 </div>

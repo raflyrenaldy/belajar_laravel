@@ -8,9 +8,9 @@ class clientController extends Controller
 {
     public function index()
     {
-         $clients = clients::all()->toArray();
+         $clients = clients::all();
         
-        return view('home', compact('clients'));
+        return view('client', compact('clients'));
     }
       public function client()
     {
@@ -35,8 +35,9 @@ class clientController extends Controller
      */
     public function store(Request $request)
     {
+
         $clients = new clients([
-          'id' => $request->get('id'),
+          'ganti' => $request->get('ganti'),
           'nama' => $request->get('nama'),
           'no_account' => $request->get('no_account'),
           'join_date' => $request->get('join_date'),
@@ -44,7 +45,7 @@ class clientController extends Controller
         ]);
  
         $clients->save();
-        return redirect('/');
+        return redirect('/client');
     }
  
     /**

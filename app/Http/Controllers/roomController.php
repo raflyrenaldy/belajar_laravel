@@ -11,7 +11,7 @@ class roomController extends Controller
     {
          $rooms = rooms::all()->toArray();
         
-        return view('home', compact('rooms'));
+        return view('room', compact('rooms'));
     }
       public function room()
     {

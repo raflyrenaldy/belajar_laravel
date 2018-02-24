@@ -300,6 +300,7 @@
                 <table class="table table-striped table-hover table-bordered" id="editable-sample">
                 <thead>
                 <tr>
+                    <th>No</th>
                     <th>Id Client</th>
                     <th>Name</th>
                     <th>No Account</th>
@@ -310,17 +311,18 @@
                 <tbody>
                     <?php $i=1; ?>
                      @foreach($clients as $post)
+                     
                 <tr class="">
-                    <td>{{$post['id']}}</td>
-                    <td>{{$post['name']}}</td>
+                    <td>{{$i}}</td>
+                    <td>{{$post['client_id']}}</td>
+                    <td>{{$post['nama']}}</td>
                     <td>{{$post['no_account']}}</td>
                     <td>{{$post['join_date']}}</td>
-                    <td><a class="edit" href="javascript:;">Edit</a>< |
+                    <td><a class="edit" href="javascript:;">Edit</a> |
                     <a class="delete" href="javascript:;">Delete</a></td>
                 </tr>
-                 <?php 
-                $i++;
-                ?>
+                 <?php $i++;
+                 ?>
                  @endforeach
                 </tbody>
                 </table>
