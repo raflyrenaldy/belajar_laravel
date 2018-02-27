@@ -248,41 +248,16 @@
                                     </div>
                                     <div class="modal-body">
 
-                                        <form class="form-horizontal" role="form" method="post" action="{{url('lost')}}">
+                                        <form class="form-horizontal" role="form" method="post" action="{{url('room')}}">
                                             <div class="form-group">
                                                  {{csrf_field()}}
-                                                <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Nama</label>
+                                                <label for="" class="col-lg-2 col-sm-2 control-label">Ruangan</label>
                                                 <div class="col-lg-10">
-                                                    <input type="text" class="form-control" id="inputEmail4" name="name" id="name">
+                                                    <input type="text" class="form-control" name="room" id="room">
                                                 </div>
                                             </div>
                                             
-                                <div class="form-group">
-                                    <label class="col-lg-2 col-sm-2 control-label">Tanggal</label>
-                                    <div class="col-lg-10">
-                                        <input size="16" type="text" readonly class="form_datetime form-control" name="created_at" id="created_at">
-                                    </div>
-                                </div>
-                                       
-                                            <div class="form-group">
-                                                <label for="inputPassword1" class="col-lg-2 col-sm-2 control-label">Jumlah</label>
-                                                <div class="col-lg-10">
-                                                    <input type="number" class="form-control" id="inputPassword4" name="qty" id="qty">
-                                                </div>
-                                            </div>
-                                                   
-                                   <div class="form-group">
-                                              <label class="col-lg-2 col-sm-2 control-label">Keterangan</label>
-                                                 <div class="col-sm-10">
-                                         <textarea rows="6" class="form-control" name="description" id="description"></textarea>
-                                     </div>
-                                      </div>
-                                       <div class="form-group">
-                                              <label class="col-lg-2 col-sm-2 control-label">Keterangan+</label>
-                                                 <div class="col-sm-10">
-                                         <textarea rows="6" class="form-control" name="decsription2" id="description2"></textarea>
-                                     </div>
-                                      </div>                                        
+                                                                      
                                             <div class="form-group">
                                                 <div class="col-lg-offset-2 col-lg-10">
                                                     <button type="submit" class="btn btn-primary">Submit</button>

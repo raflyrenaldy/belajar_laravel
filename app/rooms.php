@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class rooms extends Model
 {
-        protected $fillable = ['id','room'];
+        protected $fillable = ['room_id','room'];
     protected $table = 'rooms';
 public $timestamps = false;
 }

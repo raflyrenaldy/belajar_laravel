@@ -9,7 +9,7 @@ class roomController extends Controller
 {
     public function index()
     {
-         $rooms = rooms::all()->toArray();
+         $rooms = rooms::all();
         
         return view('room', compact('rooms'));
     }
@@ -23,10 +23,7 @@ class roomController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function home2()
-    {
-        return view('');
-    }
+ 
  
     /**
      * Store a newly created resource in storage.
@@ -37,12 +34,11 @@ class roomController extends Controller
     public function store(Request $request)
     {
         $rooms = new rooms([
-          'id' => $request->get('id'),
-          'room' => $request->get('romom')         
+          'room' => $request->get('room')         
         ]);
  
         $rooms->save();
-        return redirect('/');
+        return redirect('/room');
     }
  
     /**

@@ -79,7 +79,7 @@
                 <li><a href="{{URL::to('/client')}}"><i class="fa fa-user"></i> <span>Client</span></a>
                     
                 </li>
-                <li><a href="{{URL::to('/room')}}"><i class="fa fa-plus-square-o"></i> <span> UI Room</span></a></li>
+                <li><a href="{{URL::to('/room')}}"><i class="fa fa-plus-square-o"></i> <span> Room</span></a></li>
                 <li><a href="{{URL::to('/workspace')}}"><i class="fa fa-briefcase"></i> <span> WorkSpace</span></a></li>
                   <li><a href=""><i class="fa fa-video-camera"></i> <span> Cctv</span></a></li>
                 <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>

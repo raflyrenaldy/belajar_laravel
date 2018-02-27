@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 24, 2018 at 12:34 PM
+-- Generation Time: Feb 27, 2018 at 05:58 AM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -22,6 +22,42 @@ SET time_zone = "+00:00";
 -- Database: `superstar`
 --
 
+DELIMITER $$
+--
+-- Functions
+--
+CREATE DEFINER=`root`@`localhost` FUNCTION `KODEOTOMATIS` (`nomer` INT) RETURNS VARCHAR(8) CHARSET latin1 BEGIN
+DECLARE kodebaru CHAR(8);
+DECLARE urut INT;
+ 
+SET urut = IF(nomer IS NULL, 1, nomer + 1);
+SET kodebaru = CONCAT("CL", LPAD(urut, 6, 0));
+ 
+RETURN kodebaru;
+END$$
+
+CREATE DEFINER=`root`@`localhost` FUNCTION `KODEOTOMATIS2` (`nomer` INT) RETURNS VARCHAR(6) CHARSET latin1 BEGIN
+DECLARE kodebaru CHAR(8);
+DECLARE urut INT;
+ 
+SET urut = IF(nomer IS NULL, 1, nomer + 1);
+SET kodebaru = CONCAT("R", LPAD(urut, 4, 0));
+ 
+RETURN kodebaru;
+END$$
+
+CREATE DEFINER=`root`@`localhost` FUNCTION `KODEOTOMATIS3` (`nomer` INT) RETURNS VARCHAR(8) CHARSET latin1 BEGIN
+DECLARE kodebaru CHAR(8);
+DECLARE urut INT;
+ 
+SET urut = IF(nomer IS NULL, 1, nomer + 1);
+SET kodebaru = CONCAT("WS", LPAD(urut, 6, 0));
+ 
+RETURN kodebaru;
+END$$
+
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -32,7 +68,7 @@ CREATE TABLE `clients` (
   `client_id` varchar(255) NOT NULL,
   `nama` varchar(255) NOT NULL,
   `no_account` varchar(255) NOT NULL,
-  `join_date` datetime NOT NULL
+  `join_date` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -40,7 +76,28 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`client_id`, `nama`, `no_account`, `join_date`) VALUES
-('C0001', 'ASDASD', 'ASDASD', '2018-02-09 00:00:00');
+('CL000001', 'Rafly Renaldy', 'RR0201', '11-21-2017'),
+('CL000002', 'Fadil K', 'RR0202', '02-14-2018');
+
+--
+-- Triggers `clients`
+--
+DELIMITER $$
+CREATE TRIGGER `KODE` BEFORE INSERT ON `clients` FOR EACH ROW BEGIN
+DECLARE s VARCHAR(8);
+DECLARE i INTEGER;
+ 
+SET i = (SELECT SUBSTRING(client_id,3,6) AS Nomer
+FROM clients ORDER BY client_id DESC LIMIT 1);
+ 
+SET s = (SELECT KODEOTOMATIS(i));
+ 
+IF(NEW.client_id IS NULL OR NEW.client_id = '')
+ THEN SET NEW.client_id =s;
+END IF;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -70,7 +127,29 @@ CREATE TABLE `rooms` (
 --
 
 INSERT INTO `rooms` (`room_id`, `room`) VALUES
-('Lab1', 'B409');
+('R0001', 'b410'),
+('R0002', 'b411'),
+('R0003', 'b415');
+
+--
+-- Triggers `rooms`
+--
+DELIMITER $$
+CREATE TRIGGER `kode2` BEFORE INSERT ON `rooms` FOR EACH ROW BEGIN
+DECLARE s VARCHAR(8);
+DECLARE i INTEGER;
+ 
+SET i = (SELECT SUBSTRING(room_id,3,6) AS Nomer
+FROM rooms ORDER BY room_id DESC LIMIT 1);
+ 
+SET s = (SELECT KODEOTOMATIS2(i));
+ 
+IF(NEW.room_id IS NULL OR NEW.room_id = '')
+ THEN SET NEW.room_id =s;
+END IF;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -102,7 +181,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `creat
 --
 
 CREATE TABLE `workspaces` (
-  `id` int(11) NOT NULL,
+  `workspaces_id` varchar(255) NOT NULL,
   `id_clients` varchar(255) NOT NULL,
   `id_room` varchar(255) NOT NULL,
   `dates` datetime NOT NULL,
@@ -110,11 +189,25 @@ CREATE TABLE `workspaces` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `workspaces`
+-- Triggers `workspaces`
 --
-
-INSERT INTO `workspaces` (`id`, `id_clients`, `id_room`, `dates`, `video`) VALUES
-(1, 'C0001', 'Lab1', '2018-02-09 00:00:00', 'ASDASDASD');
+DELIMITER $$
+CREATE TRIGGER `dates` BEFORE INSERT ON `workspaces` FOR EACH ROW BEGIN
+DECLARE s VARCHAR(8);
+DECLARE i INTEGER;
+ 
+SET i = (SELECT SUBSTRING(workspaces_id,3,6) AS Nomer
+FROM workspaces ORDER BY workspaces_id DESC LIMIT 1);
+ 
+SET s = (SELECT KODEOTOMATIS3(i));
+ 
+IF(NEW.workspaces_id IS NULL OR NEW.workspaces_id = '')
+ THEN SET NEW.workspaces_id =s;
+END IF;
+set new.dates = sysdate();
+END
+$$
+DELIMITER ;
 
 --
 -- Indexes for dumped tables
@@ -148,7 +241,7 @@ ALTER TABLE `users`
 -- Indexes for table `workspaces`
 --
 ALTER TABLE `workspaces`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`workspaces_id`),
   ADD KEY `id_room` (`id_room`),
   ADD KEY `id_clients` (`id_clients`);
 
@@ -167,12 +260,6 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `workspaces`
---
-ALTER TABLE `workspaces`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
