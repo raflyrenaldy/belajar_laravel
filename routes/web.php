@@ -26,7 +26,5 @@ Route::get('/workspace', 'wsController@workspace')->name('workspace');
 Route::resource('workspace', 'wsController');
 Route::get('/room', 'roomController@room')->name('room');
 Route::resource('room', 'roomController');
-
-
-
+Route::resource('clientedit', 'clientController');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');

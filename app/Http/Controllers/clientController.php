@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\clients;
+
 class clientController extends Controller
 {
     public function index()
@@ -65,21 +66,29 @@ class clientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($client_id)
     {
-        //
+        $clients = clients::findOrFail($client_id);
+        
+        return view('clientedit', compact('clients','client_id'));
     }
  
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $Request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+            $clients = clients::find($client_id);
+        $clients->client_id = $request->get('client_id');
+        $clients->nama = $request->get('nama');
+        $clients->no_account = $request->get('no_account');
+        $clients->join_date = $request->get('join_date');
+        $clients->save();
+        return redirect('/client');
     }
  
     /**

@@ -235,88 +235,43 @@
                 <div class="panel-body">
                 <div class="adv-table editable-table ">
                 <div class="clearfix">
-                    <div class="btn-group">
-                        <a href="#myModal-1" data-toggle="modal" class="btn btn-xs btn-success">
-                             Add New <i class="fa fa-plus"></i>
-                        </a>
-                        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal-1" class="modal fade">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-                                        <h4 class="modal-title">Add New</h4>
-                                    </div>
-                                    <div class="modal-body">
-
-                                        <form class="form-horizontal" role="form" method="post" action="{{url('client')}}">
-                                            <div class="form-group">
-                                                 {{csrf_field()}}
-                                                <label for="" class="col-lg-2 col-sm-2 control-label">Nama</label>
-                                                <div class="col-lg-10">
-                                                    <input type="text" class="form-control" id="nama" name="nama">
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label for="" class="col-lg-2 col-sm-2 control-label">No Account</label>
-                                                <div class="col-lg-10">
-                                                    <input type="text" class="form-control" id="no_account" name="no_account" >
-                                                </div>
-                                            </div>
-                                <div class="form-group">
+                    
+                <div class="space15"></div>
+                 <div class="panel-body">
+                <form class="form-horizontal adminex-form" method="post" action="{{action('clientController@update', $client_id)}}">
+                     {{csrf_field()}}
+                      <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Id Client</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="" type="text" value="{{$clients->client_id}}" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="nama" id="nama" value="{{$clients->nama}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">No Account</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="no_account" id="no_account" value="{{$clients->no_account}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
                                     <label class="col-lg-2 col-sm-2 control-label">Join Date</label>
                                     <div class="col-lg-10">
-                                        <input class="form-control form-control-inline input-medium default-date-picker"  size="16" type="text" value="" id="join_date" name="join_date"/>
+                                        <input class="form-control form-control-inline input-medium default-date-picker"  size="16" type="text" value="" id="join_date" name="join_date" value="{{$clients->join_date}}"/>
                                         <span class="help-block">Select Date</span>
                                     </div>
-                                </div>
-                                       
-                                                   
-                                   
-                                                                             
-                                            <div class="form-group">
+
+                                     <div class="form-group">
                                                 <div class="col-lg-offset-2 col-lg-10">
                                                     <button type="submit" class="btn btn-primary">Submit</button>
                                                 </div>
                                             </div>
-                                        </form>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <div class="space15"></div>
-                <table class="table table-striped table-hover table-bordered" id="editable-sample">
-                <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Id Client</th>
-                    <th>Name</th>
-                    <th>No Account</th>
-                    <th>Join Date</th>
-                    <th>Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <?php $i=1; ?>
-                     @foreach($clients as $post)
-                     
-                <tr class="">
-                    <td>{{$i}}</td>
-                    <td>{{$post['client_id']}}</td>
-                    <td>{{$post['nama']}}</td>
-                    <td>{{$post['no_account']}}</td>
-                    <td>{{$post['join_date']}}</td>
-                    <td><a href="{{action('clientController@edit', $post['client_id'])}}">Edit</a> |
-                    <a class="delete" href="{{action('clientController@destroy', $post['client_id'])}}">Delete</a></td>
-                </tr>
-                 <?php $i++;
-                 ?>
-                 @endforeach
-                </tbody>
-                </table>
+                </form>
+            </div>
                 </div>
                 </div>
                 </section>
