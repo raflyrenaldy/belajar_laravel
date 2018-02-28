@@ -10,8 +10,7 @@ class clients extends Model
     protected $table = 'clients';
 	public $timestamps = false;
 	public $incrementing = false;
-	protected $fillable = [
-		
+	protected $fillable = [		
 	'nama',
 	'no_account',
 	'join_date'

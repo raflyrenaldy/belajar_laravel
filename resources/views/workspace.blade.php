@@ -314,11 +314,11 @@
                      @foreach($workspaces as $post)
                 <tr class="">
                     <td>{{$i}}</td>
-                    <td>{{$post['name']}}</td>
-                    <td>{{$post['no_account']}}</td>
-                    <td>{{$post['room']}}</td>
-                    <td>{{$post['dates']}}</td>
-                    <td>{{$post['video']}}</td>
+                    <td>{{$post->nama}}</td>
+                    <td>{{$post->no_account}}</td>
+                    <td>{{$post->room}}</td>
+                    <td>{{$post->dates}}</td>
+                    <td>{{$post->video}}</td>
                     <td><a class="edit" href="javascript:;">Edit</a> | 
                     <a class="delete" href="javascript:;">Delete</a></td>
                 </tr>

@@ -28,7 +28,7 @@ class HomeController extends Controller
 
  public function edit1()
     {
-        return view('clientedit');
+        return view('edit');
     }
   
    

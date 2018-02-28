@@ -1,6 +1,7 @@
-@extends('layouts.app')
 
+@extends('layouts.app')
 @section('content')
+
 <div class="header-section">
 
             <!--toggle button start-->
@@ -239,29 +240,30 @@
                 <div class="space15"></div>
                  <div class="panel-body">
                 <form class="form-horizontal adminex-form" method="post" action="{{action('clientController@update', $client_id)}}">
-                     {{csrf_field()}}
+             
                       <div class="form-group">
+                        {{csrf_field()}}
                         <label class="col-sm-2 col-sm-2 control-label">Id Client</label>
                         <div class="col-sm-10">
-                            <input class="form-control" id="" type="text" value="{{$clients->client_id}}" disabled>
+                            <input class="form-control" id="" type="text" value="{{$client->client_id}}" disabled>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 col-sm-2 control-label">Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="nama" id="nama" value="{{$clients->nama}}">
+                            <input type="text" class="form-control" name="nama" id="nama" value="{{$client->nama}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 col-sm-2 control-label">No Account</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="no_account" id="no_account" value="{{$clients->no_account}}">
+                            <input type="text" class="form-control" name="no_account" id="no_account" value="{{$client->no_account}}">
                         </div>
                     </div>
                     <div class="form-group">
                                     <label class="col-lg-2 col-sm-2 control-label">Join Date</label>
                                     <div class="col-lg-10">
-                                        <input class="form-control form-control-inline input-medium default-date-picker"  size="16" type="text" value="" id="join_date" name="join_date" value="{{$clients->join_date}}"/>
+                                        <input class="form-control form-control-inline input-medium default-date-picker"  size="16" type="text" value="" id="join_date" name="join_date" value="{{$client->join_date}}"/>
                                         <span class="help-block">Select Date</span>
                                     </div>
 

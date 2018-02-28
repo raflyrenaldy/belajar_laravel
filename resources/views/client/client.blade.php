@@ -309,8 +309,8 @@
                     <td>{{$post['nama']}}</td>
                     <td>{{$post['no_account']}}</td>
                     <td>{{$post['join_date']}}</td>
-                    <td><a href="{{action('clientController@edit', $post['client_id'])}}">Edit</a> |
-                    <a class="delete" href="{{action('clientController@destroy', $post['client_id'])}}">Delete</a></td>
+                    <td align="center"><a href="{{action('clientController@show', $post['client_id'])}}" class="btn btn-warning">Edit</a> |
+                    <a  href="{{action('clientController@destroy', $post['client_id'])}}" class="btn btn-danger">Delete</a></td>
                 </tr>
                  <?php $i++;
                  ?>

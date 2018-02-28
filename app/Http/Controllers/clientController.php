@@ -11,11 +11,11 @@ class clientController extends Controller
     {
          $clients = clients::all();
         
-        return view('client', compact('clients'));
+        return view('client.client', compact('clients'));
     }
       public function client()
     {
-        return view('client');
+        return view('client.client');
     }
  
     /**
@@ -46,7 +46,7 @@ class clientController extends Controller
         ]);
  
         $clients->save();
-        return redirect('/client');
+        return redirect('/client.client');
     }
  
     /**
@@ -55,9 +55,16 @@ class clientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($client_id)
     {
-        //
+          // mengambil semua users untuk di jadikan dropdwon list pemilik di form create
+ 
+        $users = \App\User::all();
+ 
+        // melempar ke view di file create.blade.php yang berada di folder crud/kendaraan, sekaligus mengirim data user yang disimpan di variable $users dan data yg akan di edit yaitu $showById
+        $client = \App\clients::find($client_id);
+ 
+        return view('client.edit', compact('client', 'client_id'));
     }
  
     /**
@@ -68,9 +75,7 @@ class clientController extends Controller
      */
     public function edit($client_id)
     {
-        $clients = clients::findOrFail($client_id);
-        
-        return view('clientedit', compact('clients','client_id'));
+      
     }
  
     /**
@@ -82,12 +87,11 @@ class clientController extends Controller
      */
     public function update(Request $request, $id)
     {
-            $clients = clients::find($client_id);
-        $clients->client_id = $request->get('client_id');
-        $clients->nama = $request->get('nama');
-        $clients->no_account = $request->get('no_account');
-        $clients->join_date = $request->get('join_date');
-        $clients->save();
+            $client = clients::find($client_id);
+        $client->nama = $request->get('nama');
+        $client->no_account = $request->get('no_account');
+        $client->join_date = $request->get('join_date');
+        $client->save();
         return redirect('/client');
     }
  

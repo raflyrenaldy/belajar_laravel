@@ -10,9 +10,9 @@ class wsController extends Controller
      public function index()
     {
          $workspaces = \DB::table('workspaces')
-         ->join('client', 'client.client_id', '=', 'workspaces.id_clients')
-         ->join('room', 'room.room.id', '=', 'workspaces.id_room')
-         ->select('client.name, client.no_account, client.join_date, room.room ,workspace.dates, workspaces.video')
+         ->join('clients', 'clients.client_id', '=', 'workspaces.id_clients')
+         ->join('rooms', 'rooms.room_id', '=', 'workspaces.id_room')
+         ->select('workspaces.*', 'clients.nama', 'clients.no_account', 'clients.join_date', 'rooms.room')
          ->get();        
         return view('workspace', compact('workspaces'));
     }
