@@ -22,9 +22,12 @@ Route::get('/home', 'HomeController@index');
 Route::get('/', 'HomeController@index');
 Route::get('/client', 'clientController@client');
 Route::resource('client', 'clientController');
-Route::get('/workspace', 'wsController@workspace')->name('workspace');
+Route::get('workspace', 'wsController@workspace')->name('workspace');
+Route::post('workspace', 'wsController@store');
 Route::resource('workspace', 'wsController');
 Route::get('/room', 'roomController@room')->name('room');
 Route::resource('room', 'roomController');
+Route::get('/client2','wsController@client');
+Route::get('/findClientName','wsController@findClientName');
 
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');

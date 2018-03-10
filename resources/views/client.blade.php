@@ -246,55 +246,43 @@
                                         <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
                                         <h4 class="modal-title">Add New</h4>
                                     </div>
-
                                     <div class="modal-body">
 
-                                        <form class="form-horizontal" role="form" method="post" action="{{url('workspace')}}" enctype="multipart/form-data">
+                                        <form class="form-horizontal" role="form" method="post" action="{{url('client')}}">
                                             <div class="form-group">
-                                {{csrf_field()}}
-                        <label class="col-sm-2 col-sm-2 control-label">Id Client</label>
-                        <div class="col-sm-10">
-                             <select class="form-control m-bot15" id="id_clients" name="id_clients"> 
-                                 
-                                <option value="0" disabled="true" selected="true" id="id_clients" name="id_clients">-Select-</option>
-                              @foreach($client as $clients)
-                                <option value="{{$clients->client_id}}" id="id_clients" name="id_clients">{{$clients->nama}}</option>
-                                 @endforeach
-                                </select>
-
-                        </div>
-                    </div>
-                    <div class="form-group">
-
-                        <label class="col-sm-2 col-sm-2 control-label">Id Client</label>
-                        <div class="col-sm-10">
-                             <select class="form-control m-bot15" id="id_room" name="id_room"> 
-                                 
-                                <option value="0" disabled="true" selected="true" id="id_room" name="id_room">-Select-</option>
-                              @foreach($room as $rooms)
-                                <option value="{{$rooms->room_id}}" id="id_room" name="id_room">{{$rooms->room}}</option>
-                                 @endforeach
-                                </select>
-
-                        </div>
-                    </div>
-                  
-                            <div class="form-group">
-                                <label  class="col-sm-2 col-sm-2 control-label">Video</label>
-                                    <div class="controls col-md-9">
-                                          {{ csrf_field() }}
-                                        <div class="fileupload fileupload-new" data-provides="fileupload">
-                                                <span class="btn btn-default btn-file">
-                                                <span class="fileupload-new"><i class="fa fa-paper-clip"></i> Select file</span>
-                                                <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
-                                                <input type="file" class="default" name="file" id="file" multiple />
-                                                </span>
-                                            <span class="fileupload-preview" style="margin-left:5px;"></span>
-                                            <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none; margin-left:5px;"></a>
-                                        </div>
+                                                 {{csrf_field()}}
+                                                <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Nama</label>
+                                                <div class="col-lg-10">
+                                                    <input type="text" class="form-control" id="inputEmail4" name="name" id="name">
+                                                </div>
+                                            </div>
+                                            
+                                <div class="form-group">
+                                    <label class="col-lg-2 col-sm-2 control-label">Tanggal</label>
+                                    <div class="col-lg-10">
+                                        <input size="16" type="text" readonly class="form_datetime form-control" name="created_at" id="created_at">
                                     </div>
                                 </div>
-                                                                
+                                       
+                                            <div class="form-group">
+                                                <label for="inputPassword1" class="col-lg-2 col-sm-2 control-label">Jumlah</label>
+                                                <div class="col-lg-10">
+                                                    <input type="number" class="form-control" id="inputPassword4" name="qty" id="qty">
+                                                </div>
+                                            </div>
+                                                   
+                                   <div class="form-group">
+                                              <label class="col-lg-2 col-sm-2 control-label">Keterangan</label>
+                                                 <div class="col-sm-10">
+                                         <textarea rows="6" class="form-control" name="description" id="description"></textarea>
+                                     </div>
+                                      </div>
+                                       <div class="form-group">
+                                              <label class="col-lg-2 col-sm-2 control-label">Keterangan+</label>
+                                                 <div class="col-sm-10">
+                                         <textarea rows="6" class="form-control" name="decsription2" id="description2"></textarea>
+                                     </div>
+                                      </div>                                        
                                             <div class="form-group">
                                                 <div class="col-lg-offset-2 col-lg-10">
                                                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -313,28 +301,27 @@
                 <thead>
                 <tr>
                     <th>No</th>
-                    <th>Nama Client</th>
+                    <th>Id Client</th>
+                    <th>Name</th>
                     <th>No Account</th>
-                    <th>Room</th>
-                    <th>dates</th>
-                    <th>video</th>
+                    <th>Join Date</th>
                     <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                     <?php $i=1; ?>
-                     @foreach($workspaces as $post)
+                     @foreach($clients as $post)
+                     
                 <tr class="">
                     <td>{{$i}}</td>
-                    <td>{{$post->nama}}</td>
-                    <td>{{$post->no_account}}</td>
-                    <td>{{$post->room}}</td>
-                    <td>{{$post->dates}}</td>
-                    <td>{{$post->video}}</td>
-                    <td><a class="edit" href="javascript:;">Edit</a> | 
+                    <td>{{$post['client_id']}}</td>
+                    <td>{{$post['nama']}}</td>
+                    <td>{{$post['no_account']}}</td>
+                    <td>{{$post['join_date']}}</td>
+                    <td><a class="edit" href="javascript:;">Edit</a> |
                     <a class="delete" href="javascript:;">Delete</a></td>
                 </tr>
-                <?php $i++;
+                 <?php $i++;
                  ?>
                  @endforeach
                 </tbody>
@@ -347,46 +334,5 @@
         </div>
         <!--body wrapper end-->
         </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-<script type="text/javascript">
-    $(document).ready(function(){
-
-        $(document).on('change','.client',function(){
-            // console.log("hmm its change");
-
-            var client_id=$(this).val();
-            // console.log(cat_id);
-            var div=$(this).parent();
-
-            var op=" ";
-
-            $.ajax({
-                type:'get',
-                url:'{!!URL::to('findClientName')!!}',
-                data:{'id':client_id},
-                success:function(data){
-                    //console.log('success');
-
-                    //console.log(data);
-
-                    //console.log(data.length);
-                    op+='<option value="0" selected disabled>chose product</option>';
-                    for(var i=0;i<data.length;i++){
-                    op+='<option value="'+data[i].id+'">'+data[i].nama+'</option>';
-                   }
-
-                   div.find('.nama').html(" ");
-                   div.find('.nama').append(op);
-                },
-                error:function(){
-
-                }
-            });
-        });
-
-
-    });
-</script>
 
 @endsection
