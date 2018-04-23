@@ -16,175 +16,7 @@
             <!--notification menu start -->
             <div class="menu-right">
                 <ul class="notification-menu">
-                    <li>
-                        <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
-                            <i class="fa fa-tasks"></i>
-                            <span class="badge">8</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-head pull-right">
-                            <h5 class="title">You have 8 pending task</h5>
-                            <ul class="dropdown-list user-list">
-                                <li class="new">
-                                    <a href="#">
-                                        <div class="task-info">
-                                            <div>Database update</div>
-                                        </div>
-                                        <div class="progress progress-striped">
-                                            <div style="width: 40%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-warning">
-                                                <span class="">40%</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="new">
-                                    <a href="#">
-                                        <div class="task-info">
-                                            <div>Dashboard done</div>
-                                        </div>
-                                        <div class="progress progress-striped">
-                                            <div style="width: 90%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="90" role="progressbar" class="progress-bar progress-bar-success">
-                                                <span class="">90%</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="task-info">
-                                            <div>Web Development</div>
-                                        </div>
-                                        <div class="progress progress-striped">
-                                            <div style="width: 66%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="66" role="progressbar" class="progress-bar progress-bar-info">
-                                                <span class="">66% </span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="task-info">
-                                            <div>Mobile App</div>
-                                        </div>
-                                        <div class="progress progress-striped">
-                                            <div style="width: 33%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="33" role="progressbar" class="progress-bar progress-bar-danger">
-                                                <span class="">33% </span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="task-info">
-                                            <div>Issues fixed</div>
-                                        </div>
-                                        <div class="progress progress-striped">
-                                            <div style="width: 80%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" role="progressbar" class="progress-bar">
-                                                <span class="">80% </span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="new"><a href="">See All Pending Task</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
-                            <i class="fa fa-envelope-o"></i>
-                            <span class="badge">5</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-head pull-right">
-                            <h5 class="title">You have 5 Mails </h5>
-                            <ul class="dropdown-list normal-list">
-                                <li class="new">
-                                    <a href="">
-                                        <span class="thumb"><img src="images/photos/user1.png" alt="" /></span>
-                                        <span class="desc">
-                                          <span class="name">John Doe <span class="badge badge-success">new</span></span>
-                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <span class="thumb"><img src="images/photos/user2.png" alt="" /></span>
-                                        <span class="desc">
-                                          <span class="name">Jonathan Smith</span>
-                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <span class="thumb"><img src="images/photos/user3.png" alt="" /></span>
-                                        <span class="desc">
-                                          <span class="name">Jane Doe</span>
-                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <span class="thumb"><img src="images/photos/user4.png" alt="" /></span>
-                                        <span class="desc">
-                                          <span class="name">Mark Henry</span>
-                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <span class="thumb"><img src="images/photos/user5.png" alt="" /></span>
-                                        <span class="desc">
-                                          <span class="name">Jim Doe</span>
-                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="new"><a href="">Read All Mails</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
-                            <i class="fa fa-bell-o"></i>
-                            <span class="badge">4</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-head pull-right">
-                            <h5 class="title">Notifications</h5>
-                            <ul class="dropdown-list normal-list">
-                                <li class="new">
-                                    <a href="">
-                                        <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                                        <span class="name">Server #1 overloaded.  </span>
-                                        <em class="small">34 mins</em>
-                                    </a>
-                                </li>
-                                <li class="new">
-                                    <a href="">
-                                        <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                                        <span class="name">Server #3 overloaded.  </span>
-                                        <em class="small">1 hrs</em>
-                                    </a>
-                                </li>
-                                <li class="new">
-                                    <a href="">
-                                        <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                                        <span class="name">Server #5 overloaded.  </span>
-                                        <em class="small">4 hrs</em>
-                                    </a>
-                                </li>
-                                <li class="new">
-                                    <a href="">
-                                        <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                                        <span class="name">Server #31 overloaded.  </span>
-                                        <em class="small">4 hrs</em>
-                                    </a>
-                                </li>
-                                <li class="new"><a href="">See All Notifications</a></li>
-                            </ul>
-                        </div>
-                    </li>
+                    
                     <li>
                         <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                             <img src="images/photos/user-avatar.png" alt="" />
@@ -252,7 +84,7 @@
                                         <form class="form-horizontal" role="form" method="post" action="{{url('workspace')}}" enctype="multipart/form-data">
                                             <div class="form-group">
                                 {{csrf_field()}}
-                        <label class="col-sm-2 col-sm-2 control-label">Id Client</label>
+                        <label class="col-sm-2 col-sm-2 control-label">Client</label>
                         <div class="col-sm-10">
                              <select class="form-control m-bot15" id="id_clients" name="id_clients"> 
                                  
@@ -266,7 +98,7 @@
                     </div>
                     <div class="form-group">
 
-                        <label class="col-sm-2 col-sm-2 control-label">Id Client</label>
+                        <label class="col-sm-2 col-sm-2 control-label">Room</label>
                         <div class="col-sm-10">
                              <select class="form-control m-bot15" id="id_room" name="id_room"> 
                                  
@@ -308,6 +140,8 @@
                             </div>
                         </div>
                     </div>
+</div>   
+
                 <div class="space15"></div>
                 <table class="table table-striped table-hover table-bordered" id="editable-sample">
                 <thead>
@@ -331,8 +165,40 @@
                     <td>{{$post->room}}</td>
                     <td>{{$post->dates}}</td>
                     <td>{{$post->video}}</td>
-                    <td><a class="edit" href="javascript:;">Edit</a> | 
-                    <a class="delete" href="javascript:;">Delete</a></td>
+              
+                     <td align="center">
+           <button class="btn btn-danger" data-catid={{$post->workspaces_id}} data-toggle="modal" data-target="#delete">Delete</button>
+                                </td>
+<div class="modal modal-danger fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center" id="myModalLabel">Delete Confirmation</h4>
+      </div>
+      <form action="{{route('workspace.destroy','test')}}" method="post">
+            {{method_field('delete')}}
+            {{csrf_field()}}
+          <div class="modal-body">
+                <p class="text-center">
+                    Are you sure you want to delete this?
+                </p>
+                <input type="hidden" name="category_id" id="cat_id" value="">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">No, Cancel</button>
+            <button type="submit" class="btn btn-danger">Yes, Delete</button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+       
+                   
+
+                </form>
+                        
                 </tr>
                 <?php $i++;
                  ?>
@@ -387,6 +253,27 @@
 
 
     });
+
+     
+
+          function hapusdata(){
+      $('#myModal-5').modal({
+                        backdrop: 'static',
+                        keyboard: true, 
+                        show: true
+                });
+    }
+ 
+
+</script>
+<script>
+     $('#delete').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget); 
+      var cat_id = button.data('catid'); 
+      var modal = $(this);
+      modal.find('.modal-body #cat_id').val(cat_id);
+      document.getElementById("cat_id").value = '5555';
+});
 </script>
 
 @endsection

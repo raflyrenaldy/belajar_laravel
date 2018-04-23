@@ -287,10 +287,48 @@
                      @foreach($rooms as $post)
                 <tr class="">
                     <td>{{$i}}</td>
-                    <td>{{$post['room_id']}}</td>
-                    <td>{{$post['room']}}</td>
-                    <td><a class="edit" href="javascript:;">Edit</a> | 
-                    <a class="delete" href="javascript:;">Delete</a></td>
+                    <td>{{$post->room_id}}</td>
+                    <td>{{$post->room}}</td>
+                    <form action="{{action('roomController@destroy', $post->room_id)}}" method="POST">
+                     <td align="center">
+                        <button class="btn btn-warning" href="#myModal-2" data-toggle="modal" type="button"  onclick="">Edit</button> 
+                <button class="btn btn-danger" onclick="hapusdata()">Hapus</button></td>
+                        @csrf
+                         <input name="_method" type="hidden" value="DELETE">
+                         <div class="modal fade" id="myModal-5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="color:#fff;
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #d9534f;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;">
+         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h5 class="modal-title" id="exampleModalLabel">Hapus Data</h5>
+       
+      </div>
+
+      <div id="myP3" class="modal-body">
+       Data Akan Dihapus?
+      </div>
+      
+      <div class="modal-footer">
+        <button onclick="batal()" id="myBtn3" type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+        <button type="submit" id="myBtn2" type="button" class="btn btn-secondary" data-dismiss="modal">Hapus</button>
+    
+      </div>
+    </div>
+  </div>
+</div>   
+       
+                   
+
+                </form>
                 </tr>
                 <?php $i++;
                  ?>
@@ -305,5 +343,16 @@
         </div>
         <!--body wrapper end-->
         </div>
-
+<script>
+    function hapusdata(){
+      $('#myModal-5').modal({
+                        backdrop: 'static',
+                        keyboard: true, 
+                        show: true
+                });
+    }
+    function batal(){
+     $('#myModal-5').modal('hide');
+    }
+</script>
 @endsection

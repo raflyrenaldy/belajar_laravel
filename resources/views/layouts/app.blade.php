@@ -122,7 +122,7 @@
         </div>
     </div>
     <!-- left side end-->
-    
+    </div>
     <!-- main content start-->
     <div class="main-content" >
 
@@ -230,5 +230,6 @@
         EditableTable.init();
     });
 </script>
+
 </body>
 </html>

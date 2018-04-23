@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\workspaces;
 use App\clients;
 use App\rooms;
+use Gate;
 class wsController extends Controller
 {
      public function index()
@@ -101,6 +102,10 @@ class wsController extends Controller
     {
         //
     }
+     public function hapus($workspaces_id)
+    {
+        
+    }
  
     /**
      * Update the specified resource in storage.
@@ -120,8 +125,10 @@ class wsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+ public function destroy($id)
     {
-        //
+           $workspaces = workspaces::find($id);
+        $workspaces ->delete();
+        return redirect('workspace');
     }
 }

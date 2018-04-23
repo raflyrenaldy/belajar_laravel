@@ -83,6 +83,8 @@ class roomController extends Controller
      */
     public function destroy($id)
     {
-        //
+           $rooms = rooms::find($id);
+        $rooms ->delete();
+        return redirect('room');
     }
 }

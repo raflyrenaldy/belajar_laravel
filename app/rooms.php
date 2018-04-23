@@ -6,7 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class rooms extends Model
 {
-        protected $fillable = ['room_id','room'];
+	protected $primaryKey = 'room_id';
+   
     protected $table = 'rooms';
-public $timestamps = false;
+    protected $fillable = [		
+	'room' 
+	
+	];
+	public $timestamps = false;
+	public $incrementing = false;
 }
