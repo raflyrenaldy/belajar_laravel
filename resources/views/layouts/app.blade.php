@@ -113,7 +113,7 @@
                 </li>
                 <li><a href="{{URL::to('/room')}}"><i class="fa fa-plus-square-o"></i> <span> Room</span></a></li>
                 <li><a href="{{URL::to('/workspace')}}"><i class="fa fa-briefcase"></i> <span> WorkSpace</span></a></li>
-                  <li><a href=""><i class="fa fa-video-camera"></i> <span> Cctv</span></a></li>
+                  <li><a href="{{URL::to('/cctv')}}"><i class="fa fa-video-camera"></i> <span> Cctv</span></a></li>
                 <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
 
             </ul>
@@ -141,7 +141,7 @@
 
         <!--footer section start-->
         <footer>
-            2014 &copy; AdminEx by ThemeBucket
+            2018 &copy; 
         </footer>
         <!--footer section end-->
 
@@ -213,7 +213,7 @@
 
 <!--Dashboard Charts-->
 <script src="js/dashboard-chart-init.js"></script>
-
+<script src="js/jquery.isotope.js"></script>
 <!--pickers plugins-->
 <script type="text/javascript" src="js/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 <script type="text/javascript" src="js/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
@@ -228,6 +228,26 @@
 <script>
     jQuery(document).ready(function() {
         EditableTable.init();
+    });
+</script>
+<script type="text/javascript">
+    $(function() {
+        var $container = $('#gallery');
+        $container.isotope({
+            itemSelector: '.item',
+            animationOptions: {
+                duration: 750,
+                easing: 'linear',
+                queue: false
+            }
+        });
+
+        // filter items when filter link is clicked
+        $('#filters a').click(function() {
+            var selector = $(this).attr('data-filter');
+            $container.isotope({filter: selector});
+            return false;
+        });
     });
 </script>
 

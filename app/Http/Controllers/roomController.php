@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\rooms;
-
+use App\User;
+use Auth;
 class roomController extends Controller
 {
     public function index()
     {
          $rooms = rooms::all();
-        
-        return view('room', compact('rooms'));
+        $user = Auth::user();
+        return view('room', compact('rooms','user'));
     }
       public function room()
     {
@@ -70,9 +71,14 @@ class roomController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+   public function update(Request $request)
     {
-        //
+        $rooms = rooms::findOrFail($request->room_id);
+        $rooms->update($request->all());
+     
+
+      
+        return back();
     }
  
     /**
@@ -81,10 +87,12 @@ class roomController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+   public function destroy(Request $request)
     {
-           $rooms = rooms::find($id);
-        $rooms ->delete();
-        return redirect('room');
+      
+        $rooms = rooms::findOrFail($request->room_id);
+       
+        $rooms->delete();
+        return back();
     }
 }

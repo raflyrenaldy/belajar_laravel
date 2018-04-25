@@ -16,185 +16,17 @@
             <!--notification menu start -->
             <div class="menu-right">
                 <ul class="notification-menu">
-                    <li>
-                        <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
-                            <i class="fa fa-tasks"></i>
-                            <span class="badge">8</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-head pull-right">
-                            <h5 class="title">You have 8 pending task</h5>
-                            <ul class="dropdown-list user-list">
-                                <li class="new">
-                                    <a href="#">
-                                        <div class="task-info">
-                                            <div>Database update</div>
-                                        </div>
-                                        <div class="progress progress-striped">
-                                            <div style="width: 40%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-warning">
-                                                <span class="">40%</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="new">
-                                    <a href="#">
-                                        <div class="task-info">
-                                            <div>Dashboard done</div>
-                                        </div>
-                                        <div class="progress progress-striped">
-                                            <div style="width: 90%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="90" role="progressbar" class="progress-bar progress-bar-success">
-                                                <span class="">90%</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="task-info">
-                                            <div>Web Development</div>
-                                        </div>
-                                        <div class="progress progress-striped">
-                                            <div style="width: 66%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="66" role="progressbar" class="progress-bar progress-bar-info">
-                                                <span class="">66% </span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="task-info">
-                                            <div>Mobile App</div>
-                                        </div>
-                                        <div class="progress progress-striped">
-                                            <div style="width: 33%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="33" role="progressbar" class="progress-bar progress-bar-danger">
-                                                <span class="">33% </span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="task-info">
-                                            <div>Issues fixed</div>
-                                        </div>
-                                        <div class="progress progress-striped">
-                                            <div style="width: 80%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" role="progressbar" class="progress-bar">
-                                                <span class="">80% </span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="new"><a href="">See All Pending Task</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
-                            <i class="fa fa-envelope-o"></i>
-                            <span class="badge">5</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-head pull-right">
-                            <h5 class="title">You have 5 Mails </h5>
-                            <ul class="dropdown-list normal-list">
-                                <li class="new">
-                                    <a href="">
-                                        <span class="thumb"><img src="images/photos/user1.png" alt="" /></span>
-                                        <span class="desc">
-                                          <span class="name">John Doe <span class="badge badge-success">new</span></span>
-                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <span class="thumb"><img src="images/photos/user2.png" alt="" /></span>
-                                        <span class="desc">
-                                          <span class="name">Jonathan Smith</span>
-                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <span class="thumb"><img src="images/photos/user3.png" alt="" /></span>
-                                        <span class="desc">
-                                          <span class="name">Jane Doe</span>
-                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <span class="thumb"><img src="images/photos/user4.png" alt="" /></span>
-                                        <span class="desc">
-                                          <span class="name">Mark Henry</span>
-                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <span class="thumb"><img src="images/photos/user5.png" alt="" /></span>
-                                        <span class="desc">
-                                          <span class="name">Jim Doe</span>
-                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="new"><a href="">Read All Mails</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
-                            <i class="fa fa-bell-o"></i>
-                            <span class="badge">4</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-head pull-right">
-                            <h5 class="title">Notifications</h5>
-                            <ul class="dropdown-list normal-list">
-                                <li class="new">
-                                    <a href="">
-                                        <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                                        <span class="name">Server #1 overloaded.  </span>
-                                        <em class="small">34 mins</em>
-                                    </a>
-                                </li>
-                                <li class="new">
-                                    <a href="">
-                                        <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                                        <span class="name">Server #3 overloaded.  </span>
-                                        <em class="small">1 hrs</em>
-                                    </a>
-                                </li>
-                                <li class="new">
-                                    <a href="">
-                                        <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                                        <span class="name">Server #5 overloaded.  </span>
-                                        <em class="small">4 hrs</em>
-                                    </a>
-                                </li>
-                                <li class="new">
-                                    <a href="">
-                                        <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                                        <span class="name">Server #31 overloaded.  </span>
-                                        <em class="small">4 hrs</em>
-                                    </a>
-                                </li>
-                                <li class="new"><a href="">See All Notifications</a></li>
-                            </ul>
-                        </div>
-                    </li>
+                    
+                   
                     <li>
                         <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                            <img src="images/photos/user-avatar.png" alt="" />
+                            <img src="{{asset('storage/avatar/'.$user->avatar)}}" alt="" />
                             John Doe
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
-                            <li><a href="#"><i class="fa fa-user"></i>  Profile</a></li>
-                            <li><a href="#"><i class="fa fa-cog"></i>  Settings</a></li>
-                            <li><a href="#"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                          <li><a href="{{URL::to('/setting')}}"><i class="fa fa-cog"></i>  Settings</a></li>
+                            <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> Log Out</a></li>
                         </ul>
                     </li>
 
@@ -296,6 +128,65 @@
                             </div>
                         </div>
                     </div>
+                    <iv aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="edit" class="modal fade">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                        <h4 class="modal-title">Edit Data</h4>
+                                    </div>
+                                    <form action="{{route('workspace.update','test')}}" method="post">
+                                            {{method_field('patch')}}
+                                            {{csrf_field()}}
+                                    <div class="modal-body">
+
+                                       
+                                             <div class="form-group">
+
+                                                <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Id Client</label>
+                                                <div class="col-lg-10">
+                                                    <input type="text" class="form-control" id="inputEmail4" name="id_client2" id="id_client2">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Nama</label>
+                                                <div class="col-lg-10">
+                                                    <input type="text" class="form-control" id="inputEmail4" name="name2" id="name2">
+                                                </div>
+                                            </div>
+                                             <div class="form-group">
+                                                <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">No Account</label>
+                                                <div class="col-lg-10">
+                                                    <input type="text" class="form-control" id="inputEmail4" name="no_account2" id="no_account2">
+                                                </div>
+                                            </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 col-sm-2 control-label">Join Date</label>
+                                    <div class="col-lg-10">
+                                        <input size="16" type="text" readonly class="form_datetime form-control" name="join_date2" id="join_date2">
+                                    </div>
+                                </div>
+                                       
+                                            <div class="form-group">
+                                                <label for="inputPassword1" class="col-lg-2 col-sm-2 control-label">Jumlah</label>
+                                                <div class="col-lg-10">
+                                                    <input type="number" class="form-control" id="inputPassword4" name="qty" id="qty">
+                                                </div>
+                                            </div>
+                                                   
+                                                                         
+                                            <div class="form-group">
+                                                <div class="col-lg-offset-2 col-lg-10">
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                 <div class="space15"></div>
                 <table class="table table-striped table-hover table-bordered" id="editable-sample">
                 <thead>
@@ -318,8 +209,11 @@
                     <td>{{$post['nama']}}</td>
                     <td>{{$post['no_account']}}</td>
                     <td>{{$post['join_date']}}</td>
-                    <td><a class="edit" href="javascript:;">Edit</a> |
-                    <a class="delete" href="javascript:;">Delete</a></td>
+                   <td>
+                                    <button class="btn btn-info" data-client_id="{{$post->client_id}}" data-nama="{{$post->nama}}" data-no_account="{{$post->no_account}}" data-join_date="{{$post->join_date}}" data-toggle="modal" data-target="#edit">Edit</button>
+                                    /
+                                    <button class="btn btn-danger" data-catid={{$cat->id}} data-toggle="modal" data-target="#delete">Delete</button>
+                                </td>
                 </tr>
                  <?php $i++;
                  ?>
@@ -334,5 +228,20 @@
         </div>
         <!--body wrapper end-->
         </div>
+<script src="{{asset('js/app.js')}}"></script>
+<script>
 
+  $('#edit').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget) 
+      var client_id = button.data('client_id') 
+      var nama = button.data('nama') 
+      var no_account = button.data('no_account') 
+      var join_date = button.data('join_date')
+      var modal = $(this)
+      modal.find('.modal-body #client_id2').val(client_id);
+      modal.find('.modal-body #nama2').val(nama);
+      modal.find('.modal-body #no_account2').val(no_account);
+      modal.find('.modal-body #join_date2').val(join_date);
+})
+</script>
 @endsection

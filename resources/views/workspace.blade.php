@@ -8,9 +8,7 @@
             <!--toggle button end-->
 
             <!--search start-->
-            <form class="searchform" action="index.html" method="post">
-                <input type="text" class="form-control" name="keyword" placeholder="Search here..." />
-            </form>
+           
             <!--search end-->
 
             <!--notification menu start -->
@@ -19,14 +17,13 @@
                     
                     <li>
                         <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                            <img src="images/photos/user-avatar.png" alt="" />
-                            John Doe
+                            <img src="{{asset('storage/avatar/'.$user->avatar)}}" alt="" />
+                           {{$user->name}} 
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
-                            <li><a href="#"><i class="fa fa-user"></i>  Profile</a></li>
-                            <li><a href="#"><i class="fa fa-cog"></i>  Settings</a></li>
-                            <li><a href="#"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                        <li><a href="{{URL::to('/setting')}}"><i class="fa fa-cog"></i>  Settings</a></li>
+                            <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> Log Out</a></li>
                         </ul>
                     </li>
 
@@ -38,16 +35,14 @@
 <!-- page heading start-->
         <div class="page-heading">
             <h3>
-                Editable Table
+               Workspace
             </h3>
             <ul class="breadcrumb">
                 <li>
                     <a href="#">Dashboard</a>
                 </li>
-                <li>
-                    <a href="#">Data Table</a>
-                </li>
-                <li class="active"> Editable Table </li>
+               
+                <li class="active"> Workspace </li>
             </ul>
         </div>
         <!-- page heading end-->
@@ -58,7 +53,7 @@
                 <div class="col-sm-12">
                 <section class="panel">
                 <header class="panel-heading">
-                    Editable Table
+                    Workspace
                     <span class="tools pull-right">
                         <a href="javascript:;" class="fa fa-chevron-down"></a>
                         <a href="javascript:;" class="fa fa-times"></a>
@@ -67,10 +62,15 @@
                 <div class="panel-body">
                 <div class="adv-table editable-table ">
                 <div class="clearfix">
-                    <div class="btn-group">
+                  <div class="btn-group">
+                   <?php if($user->role_id == '1' || $user->role_id == '2'){
+                         ?>   
+                    
                         <a href="#myModal-1" data-toggle="modal" class="btn btn-xs btn-success">
                              Add New <i class="fa fa-plus"></i>
                         </a>
+                         <?php }else{?>
+                      <?php }?>
                         <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal-1" class="modal fade">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -129,7 +129,7 @@
                                                                 
                                             <div class="form-group">
                                                 <div class="col-lg-offset-2 col-lg-10">
-                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#saveButton">Submit</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -141,6 +141,59 @@
                         </div>
                     </div>
 </div>   
+</div>
+<div class="modal fade" id="play" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title">Video Player</h4>
+                                        </div>
+
+                                        <div class="modal-body row">
+                                         {{csrf_field()}}
+                                         
+                                         <input type="hidden" name="workspaces_id" id="workspaces_id" value="">
+                                        
+                                          <div class="form-group">
+
+                                                <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Nama </label>
+                                                <div class="col-lg-10">
+                                                   <p id="nama"></p>
+                                                </div>
+                                            </div>
+                                              <div class="form-group">
+
+                                                <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Ruangan </label>
+                                                <div class="col-lg-10">
+                                                   <p id="ruangan"></p>
+                                                </div>
+                                            </div>
+                                              <div class="form-group">
+
+                                                <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Tanggal </label>
+                                                <div class="col-lg-10">
+                                                   <p id="dates"></p>
+                                                </div>
+                                            </div>
+            
+
+                                        
+                                           <video style=" width: 100%; height: auto; " width="400"  id="video1" name="video1" type="video/mp4" controls>
+                                              
+                                            
+                                
+                                         Your browser does not support HTML5 video.
+                                        </video>
+                                                <div class="pull-right">
+                                                    <button class="btn btn-danger btn-sm" type="button" data-dismiss="modal">close</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
 
                 <div class="space15"></div>
                 <table class="table table-striped table-hover table-bordered" id="editable-sample">
@@ -152,7 +205,9 @@
                     <th>Room</th>
                     <th>dates</th>
                     <th>video</th>
+                    
                     <th>Action</th>
+                     
                 </tr>
                 </thead>
                 <tbody>
@@ -166,8 +221,9 @@
                     <td>{{$post->dates}}</td>
                     <td>{{$post->video}}</td>
               
-                     <td align="center">
-           <button class="btn btn-danger" data-catid={{$post->workspaces_id}} data-toggle="modal" data-target="#delete">Delete</button>
+                     <td align="center"><button class="btn btn-success" type="button" data-workspaces_id="{{$post->workspaces_id}}" data-video="{{asset('storage/upload/'.$post->video)}}"" data-nama="{{$post->nama}}" data-ruangan="{{$post->room}}" data-dates="{{$post->dates}}" data-toggle="modal" data-target="#play">Play</button><?php if($user->role_id == '1'){
+                   ?>
+           <button class="btn btn-danger" data-workspaces_id={{$post->workspaces_id}} data-toggle="modal" data-target="#delete">Delete</button>
                                 </td>
 <div class="modal modal-danger fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -183,7 +239,7 @@
                 <p class="text-center">
                     Are you sure you want to delete this?
                 </p>
-                <input type="hidden" name="category_id" id="cat_id" value="">
+                <input type="hidden" name="workspaces_id" id="workspaces_id" value="">
 
           </div>
           <div class="modal-footer">
@@ -193,11 +249,10 @@
       </form>
     </div>
   </div>
-</div>
-       
-                   
-
-                </form>
+   </div>                
+  <?php }else{
+                     } ?>
+               
                         
                 </tr>
                 <?php $i++;
@@ -266,14 +321,56 @@
  
 
 </script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="/js/vendor/jquery.ui.widget.js"></script>
+<script src="/js/jquery.iframe-transport.js"></script>
+<script src="/js/jquery.fileupload.js"></script>
+<script>
+    $(function () {
+        $('#fileupload').fileupload({
+            dataType: 'json',
+            add: function (e, data) {
+                $('#loading').text('Uploading...');
+                data.submit();
+            },
+            done: function (e, data) {
+                $.each(data.result.files, function (index, file) {
+                    $('<p/>').html(file.name + ' (' + file.size + ' KB)').appendTo($('#files_list'));
+                    if ($('#file_ids').val() != '') {
+                        $('#file_ids').val($('#file_ids').val() + ',');
+                    }
+                    $('#file_ids').val($('#file_ids').val() + file.fileID);
+                });
+                $('#loading').text('');
+            }
+        });
+    });
+
+    
+</script>
+<script src="{{asset('js/app.js')}}"></script>
 <script>
      $('#delete').on('show.bs.modal', function (event) {
-      var button = $(event.relatedTarget); 
-      var cat_id = button.data('catid'); 
-      var modal = $(this);
-      modal.find('.modal-body #cat_id').val(cat_id);
-      document.getElementById("cat_id").value = '5555';
+      var button = $(event.relatedTarget)
+      var workspaces_id = button.data('workspaces_id')
+      var modal = $(this)
+      modal.find('.modal-body #workspaces_id').val(workspaces_id);
 });
-</script>
 
+       $('#play').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget)
+      var w_id = button.data('workspaces_id')
+      var asb = button.data('video')
+      var nama = button.data('nama')
+      var dates = button.data('dates')
+      var room = button.data('ruangan')
+      var modal = $(this)
+      modal.find('.modal-body #workspaces_id').val(w_id);
+     // modal.find('.modal-body #video1').src(asb);
+        document.getElementById("video1").src = asb;
+        document.getElementById('nama').innerHTML = nama;
+        document.getElementById('dates').innerHTML = dates;
+        document.getElementById('ruangan').innerHTML = room;
+       });
+</script>
 @endsection

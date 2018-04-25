@@ -3,10 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\workspaces;
 use App\clients;
 use App\rooms;
+use App\User;
+use Auth;
 use Gate;
+use File;
+date_default_timezone_set('Asia/Jakarta');
 class wsController extends Controller
 {
      public function index()
@@ -16,12 +21,15 @@ class wsController extends Controller
          ->join('clients', 'clients.client_id', '=', 'workspaces.id_clients')
          ->join('rooms', 'rooms.room_id', '=', 'workspaces.id_room')
          ->select('workspaces.*', 'clients.nama', 'clients.no_account', 'clients.join_date', 'rooms.room')
+         ->orderBy('workspaces_id')
          ->get();      
           $client=clients::all();  
           $room = rooms::all();
-        return view('workspace', compact('workspaces', 'client', 'room'));
+          $user = Auth::user();
+        return view('workspace', compact('workspaces', 'client', 'room','user'));
 
     }
+   
 
     public  function showUploadForm()
     {
@@ -65,12 +73,18 @@ class wsController extends Controller
     {
 
         if ($request->hasFile('file')){
+
             $filename = $request->file->getClientOriginalName();
-            $request->file->storeAs('public/upload',$filename);         
+            $name_only = pathinfo($filename, PATHINFO_FILENAME);
+            $ext_only =  $request->file->getClientOriginalExtension();
+
+            $name = $name_only.'-'.date('His').'.'.$ext_only;
+            // dd($name);
+            $request->file->storeAs('public/upload', $name);         
            $workspaces = new workspaces([
           'id_clients' => $request->get('id_clients'),
           'id_room' => $request->get('id_room'),
-          'video' => $filename
+          'video' => $name
         ]);
 
     
@@ -125,10 +139,13 @@ class wsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
- public function destroy($id)
+ public function destroy(Request $request)
     {
-           $workspaces = workspaces::find($id);
-        $workspaces ->delete();
-        return redirect('workspace');
+      
+        $workspaces = workspaces::findOrFail($request->workspaces_id);
+       
+    File::delete($workspaces->photo);
+        $workspaces->delete();
+        return back();
     }
 }

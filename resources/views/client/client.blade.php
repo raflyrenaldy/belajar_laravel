@@ -8,193 +8,23 @@
             <!--toggle button end-->
 
             <!--search start-->
-            <form class="searchform" action="index.html" method="post">
-                <input type="text" class="form-control" name="keyword" placeholder="Search here..." />
-            </form>
+          
             <!--search end-->
 
             <!--notification menu start -->
             <div class="menu-right">
                 <ul class="notification-menu">
+                   
                     <li>
-                        <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
-                            <i class="fa fa-tasks"></i>
-                            <span class="badge">8</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-head pull-right">
-                            <h5 class="title">You have 8 pending task</h5>
-                            <ul class="dropdown-list user-list">
-                                <li class="new">
-                                    <a href="#">
-                                        <div class="task-info">
-                                            <div>Database update</div>
-                                        </div>
-                                        <div class="progress progress-striped">
-                                            <div style="width: 40%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-warning">
-                                                <span class="">40%</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="new">
-                                    <a href="#">
-                                        <div class="task-info">
-                                            <div>Dashboard done</div>
-                                        </div>
-                                        <div class="progress progress-striped">
-                                            <div style="width: 90%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="90" role="progressbar" class="progress-bar progress-bar-success">
-                                                <span class="">90%</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="task-info">
-                                            <div>Web Development</div>
-                                        </div>
-                                        <div class="progress progress-striped">
-                                            <div style="width: 66%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="66" role="progressbar" class="progress-bar progress-bar-info">
-                                                <span class="">66% </span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="task-info">
-                                            <div>Mobile App</div>
-                                        </div>
-                                        <div class="progress progress-striped">
-                                            <div style="width: 33%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="33" role="progressbar" class="progress-bar progress-bar-danger">
-                                                <span class="">33% </span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="task-info">
-                                            <div>Issues fixed</div>
-                                        </div>
-                                        <div class="progress progress-striped">
-                                            <div style="width: 80%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" role="progressbar" class="progress-bar">
-                                                <span class="">80% </span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="new"><a href="">See All Pending Task</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
-                            <i class="fa fa-envelope-o"></i>
-                            <span class="badge">5</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-head pull-right">
-                            <h5 class="title">You have 5 Mails </h5>
-                            <ul class="dropdown-list normal-list">
-                                <li class="new">
-                                    <a href="">
-                                        <span class="thumb"><img src="images/photos/user1.png" alt="" /></span>
-                                        <span class="desc">
-                                          <span class="name">John Doe <span class="badge badge-success">new</span></span>
-                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <span class="thumb"><img src="images/photos/user2.png" alt="" /></span>
-                                        <span class="desc">
-                                          <span class="name">Jonathan Smith</span>
-                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <span class="thumb"><img src="images/photos/user3.png" alt="" /></span>
-                                        <span class="desc">
-                                          <span class="name">Jane Doe</span>
-                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <span class="thumb"><img src="images/photos/user4.png" alt="" /></span>
-                                        <span class="desc">
-                                          <span class="name">Mark Henry</span>
-                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <span class="thumb"><img src="images/photos/user5.png" alt="" /></span>
-                                        <span class="desc">
-                                          <span class="name">Jim Doe</span>
-                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="new"><a href="">Read All Mails</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
-                            <i class="fa fa-bell-o"></i>
-                            <span class="badge">4</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-head pull-right">
-                            <h5 class="title">Notifications</h5>
-                            <ul class="dropdown-list normal-list">
-                                <li class="new">
-                                    <a href="">
-                                        <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                                        <span class="name">Server #1 overloaded.  </span>
-                                        <em class="small">34 mins</em>
-                                    </a>
-                                </li>
-                                <li class="new">
-                                    <a href="">
-                                        <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                                        <span class="name">Server #3 overloaded.  </span>
-                                        <em class="small">1 hrs</em>
-                                    </a>
-                                </li>
-                                <li class="new">
-                                    <a href="">
-                                        <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                                        <span class="name">Server #5 overloaded.  </span>
-                                        <em class="small">4 hrs</em>
-                                    </a>
-                                </li>
-                                <li class="new">
-                                    <a href="">
-                                        <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                                        <span class="name">Server #31 overloaded.  </span>
-                                        <em class="small">4 hrs</em>
-                                    </a>
-                                </li>
-                                <li class="new"><a href="">See All Notifications</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
+                        
                         <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                            <img src="images/photos/user-avatar.png" alt="" />
-                            John Doe
+                            <img src="{{asset('storage/avatar/'.$user->avatar)}}" alt="" />
+                           {{$user->name}}
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
-                            <li><a href="#"><i class="fa fa-user"></i>  Profile</a></li>
-                            <li><a href="#"><i class="fa fa-cog"></i>  Settings</a></li>
-                            <li><a href="#"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                            <li><a href="{{URL::to('/setting')}}"><i class="fa fa-cog"></i>  Settings</a></li>
+                            <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> Log Out</a></li>
                         </ul>
                     </li>
 
@@ -206,16 +36,14 @@
 <!-- page heading start-->
         <div class="page-heading">
             <h3>
-                Editable Table
+                Client
             </h3>
             <ul class="breadcrumb">
                 <li>
                     <a href="#">Dashboard</a>
                 </li>
-                <li>
-                    <a href="#">Data Table</a>
-                </li>
-                <li class="active"> Editable Table </li>
+             
+                <li class="active">Client </li>
             </ul>
         </div>
         <!-- page heading end-->
@@ -226,7 +54,7 @@
                 <div class="col-sm-12">
                 <section class="panel">
                 <header class="panel-heading">
-                    Editable Table
+                    Client
                     <span class="tools pull-right">
                         <a href="javascript:;" class="fa fa-chevron-down"></a>
                         <a href="javascript:;" class="fa fa-times"></a>
@@ -236,9 +64,14 @@
                 <div class="adv-table editable-table ">
                 <div class="clearfix">
                     <div class="btn-group">
+                         <?php if($user->role_id == '1' || $user->role_id == '2'){
+                         ?>  
                         <a href="#myModal-1" data-toggle="modal" class="btn btn-xs btn-success">
                              Add New <i class="fa fa-plus"></i>
                         </a>
+                        <?php }else{?>
+                      <?php }?>
+                    </div>
                         <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal-1" class="modal fade">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -286,7 +119,60 @@
                                 </div>
                             </div>
                         </div>
+                        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="edit" class="modal fade">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                        <h4 class="modal-title">Add New</h4>
+                                    </div> 
+                                    <form action="{{route('client.update','test')}}" method="post" class="form-horizontal" role="form">
+                                            {{method_field('patch')}}
+                                            {{csrf_field()}}
+                                    <div class="modal-body">
+                   
+                                    <input type="hidden" name="client_id" id="client_id" value="">
+                                           
+                                            <div class="form-group">
+                                              
+                                                <label for="" class="col-lg-2 col-sm-2 control-label">Nama</label>
+                                                <div class="col-lg-10">
+                                                    <input type="text" class="form-control" id="nama" name="nama">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="" class="col-lg-2 col-sm-2 control-label">No Account</label>
+                                                <div class="col-lg-10">
+                                                    <input type="text" class="form-control" id="no_account" name="no_account" >
+                                                </div>
+                                            </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 col-sm-2 control-label">Join Date</label>
+                                    <div class="col-lg-10">
+                                        <input class="form-control form-control-inline input-medium default-date-picker"  size="16" type="text" value="" id="join_date" name="join_date"/>
+                                        <span class="help-block">Select Date</span>
+                                    </div>
+                                </div>
+                                       
+                                                   
+                                   
+                                                                             
+                                            <div class="form-group">
+                                                <div class="col-lg-offset-2 col-lg-10">
+                                                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                     <button type="submit" class="btn btn-primary">Save Changes</button>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                      
+                        
                 <div class="space15"></div>
                 <table class="table table-striped table-hover table-bordered" id="editable-sample">
                 <thead>
@@ -296,7 +182,11 @@
                     <th>Name</th>
                     <th>No Account</th>
                     <th>Join Date</th>
+                      <?php if($user->role_id == '1'){
+                   ?>
                     <th>Action</th>
+                     <?php }else{
+                     } ?>
                 </tr>
                 </thead>
                 <tbody>
@@ -309,8 +199,39 @@
                     <td>{{$post['nama']}}</td>
                     <td>{{$post['no_account']}}</td>
                     <td>{{$post['join_date']}}</td>
-                    <td align="center"><a href="{{action('clientController@show', $post['client_id'])}}" class="btn btn-warning">Edit</a> |
-                    <a  href="{{action('clientController@destroy', $post['client_id'])}}" class="btn btn-danger">Delete</a></td>
+                     <?php if($user->role_id == '1'){
+                   ?>
+                  <td align="center"> <button class="btn btn-info" data-client_id="{{$post->client_id}}" data-nama="{{$post->nama}}" data-no_account="{{$post->no_account}}" data-join_date="{{$post->join_date}}" data-toggle="modal" data-target="#edit">Edit</button>
+                                    
+                                    <button class="btn btn-danger" data-client_id="{{$post->client_id}}" data-toggle="modal" data-target="#delete">Hapus</button>
+                                </td>
+                                <div class="modal modal-danger fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center" id="myModalLabel">Delete Confirmation</h4>
+      </div>
+      <form action="{{route('client.destroy','test')}}" method="post">
+            {{method_field('delete')}}
+            {{csrf_field()}}
+          <div class="modal-body">
+                <p class="text-center">
+                    Are you sure you want to delete this?
+                </p>
+                <input type="hidden" name="client_id" id="client_id" value="">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">No, Cancel</button>
+            <button type="submit" class="btn btn-danger">Yes, Delete</button>
+          </div>
+      </form>
+    </div>
+  </div>
+   </div>
+   <?php }else{
+                     } ?>
                 </tr>
                  <?php $i++;
                  ?>
@@ -322,8 +243,30 @@
                 </section>
                 </div>
                 </div>
-        </div>
+        
         <!--body wrapper end-->
         </div>
+<script src="{{asset('js/app.js')}}"></script>
+<script>
 
+  $('#edit').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget) 
+      var client_id = button.data('client_id') 
+      var nama = button.data('nama') 
+      var no_account = button.data('no_account') 
+      var join_date = button.data('join_date')
+      var modal = $(this)
+      modal.find('.modal-body #client_id').val(client_id);
+      modal.find('.modal-body #nama').val(nama);
+      modal.find('.modal-body #no_account').val(no_account);
+      modal.find('.modal-body #join_date').val(join_date);
+})
+
+      $('#delete').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget)
+      var client_id = button.data('client_id')
+      var modal = $(this)
+      modal.find('.modal-body #client_id').val(client_id);
+      })
+  </script>
 @endsection

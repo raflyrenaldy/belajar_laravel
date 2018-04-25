@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\clients;
-
+use App\User;
+use Auth;
 class clientController extends Controller
 {
     public function index()
     {
-         $clients = clients::all();
+         $clients= clients::orderBy('client_id','asc')->get();
+             $user = Auth::user();
         
-        return view('client.client', compact('clients'));
+        return view('client.client', compact('clients','user'));
     }
       public function client()
     {
@@ -44,7 +46,7 @@ class clientController extends Controller
           'join_date' => $request->get('join_date'),
           'description2' => $request->get('description2')
         ]);
- 
+          
         $clients->save();
         return redirect('/client');
     }
@@ -63,8 +65,8 @@ class clientController extends Controller
  
         // melempar ke view di file create.blade.php yang berada di folder crud/kendaraan, sekaligus mengirim data user yang disimpan di variable $users dan data yg akan di edit yaitu $showById
         $client = \App\clients::find($client_id);
- 
-        return view('client.edit', compact('client', 'client_id'));
+        $user = Auth::user();
+        return view('client.edit', compact('client', 'client_id', 'user'));
     }
  
     /**
@@ -85,14 +87,14 @@ class clientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+   public function update(Request $request)
     {
-            $client = clients::find($client_id);
-        $client->nama = $request->get('nama');
-        $client->no_account = $request->get('no_account');
-        $client->join_date = $request->get('join_date');
-        $client->save();
-        return redirect('/client');
+        $clients = clients::findOrFail($request->client_id);
+        $clients->update($request->all());
+     
+
+      
+        return back();
     }
  
     /**
@@ -101,8 +103,12 @@ class clientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+      
+        $clients = clients::findOrFail($request->client_id);
+       
+        $clients->delete();
+        return back();
     }
 }
