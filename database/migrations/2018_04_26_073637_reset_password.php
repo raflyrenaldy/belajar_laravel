@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddAvatarColumnToUsersTable extends Migration
+class ResetPassword extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AddAvatarColumnToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('avatar')->after('name')->nullable();
+         Schema::create('password_resets', function (Blueprint $table) {
+            $table->string('email')->index();
+            $table->string('token')->index();
+            $table->timestamp('created_at');
         });
     }
 
@@ -25,8 +27,6 @@ class AddAvatarColumnToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+       Schema::drop('password_resets');
     }
 }

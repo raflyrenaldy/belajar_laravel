@@ -1,77 +1,61 @@
-@extends('layouts.app')
-
+@extends('layouts.app2')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Register</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+<div class="container">
+
+    
+         <form class="form-signin" method="POST" action="{{ route('register') }}">
                         @csrf
  {{csrf_field()}}
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
+        <div class="form-signin-heading text-center">
+            <h1 class="sign-title">Registration</h1>
+            <img src="images/login-logo.png" alt=""/>
+        </div>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
 
-                                @if ($errors->has('name'))
+        <div class="login-wrap">
+            <p>Enter your personal details below</p>
+            <input type="text" autofocus="" id="name" name="name" placeholder="Full Name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" value="{{ old('name') }}" required autofocus>
+            @if ($errors->has('name'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                 @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
+            <input type="text" autofocus="" placeholder="Email" id="email" name="email" value="{{ old('email') }}" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" required>
+            @if ($errors->has('email'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
+                                @endif           
+            <input id="password" name="password" type="password" placeholder="Password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" required>
+             @if ($errors->has('password'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+            <input id="password-confirm" name="password_confirmation" type="password" placeholder="Re-type Password" class="form-control" required>
+            
+            <button type="submit" class="btn btn-lg btn-login btn-block">
+                <i class="fa fa-check"></i>
+            </button>
+<div class="registration">
+                Already Registered.
+                <a href="{{URL::to('/login')}}" class="">
+                    Login
+                </a>
             </div>
+           
+
         </div>
-    </div>
+
+    </form>
+
 </div>
+
+
+
+<!-- Placed js at the end of the document so the pages load faster -->
+
+<!-- Placed js at the end of the document so the pages load faster -->
+
 @endsection

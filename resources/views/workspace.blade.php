@@ -44,7 +44,9 @@
                
                 <li class="active"> Workspace </li>
             </ul>
+
         </div>
+
         <!-- page heading end-->
 
         <!--body wrapper start-->
@@ -54,15 +56,21 @@
                 <section class="panel">
                 <header class="panel-heading">
                     Workspace
+                
                     <span class="tools pull-right">
+                          
+                                                    
+                                                   
+                                                
                         <a href="javascript:;" class="fa fa-chevron-down"></a>
                         <a href="javascript:;" class="fa fa-times"></a>
                      </span>
+                     
                 </header>
                 <div class="panel-body">
                 <div class="adv-table editable-table ">
                 <div class="clearfix">
-                  <div class="btn-group">
+                  
                    <?php if($user->role_id == '1' || $user->role_id == '2'){
                          ?>   
                     
@@ -71,6 +79,19 @@
                         </a>
                          <?php }else{?>
                       <?php }?>
+                      <form action="{{ url('searchws') }}" method="GET" >
+                        <button type="submit" class="btn btn-default pull-right">Search</button>
+
+              <div class="col-md-3 pull-right">
+                                                        <div class="input-group input-large custom-date-range" data-date="13/07/2013" data-date-format="yyyy/mm/dd">
+                                                            <input id="dates_from" type="text" class="form-control dpd1" name="dates_from">
+                                                            <span id="dates_to" class="input-group-addon">To</span>
+                                                            <input type="text" class="form-control dpd2" name="dates_to">
+                                                        </div>
+                                                       
+                                                    </div>
+                                          </form>
+                                                  </div>
                         <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal-1" class="modal fade">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -126,6 +147,12 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 col-sm-2 control-label">Dates</label>
+                                    <div class="col-md-4">
+                                        <input size="16" type="text" name="dates1" id="dates1" value="<?php echo date("Y-m-d");?>" readonly class="form_datetime form-control">
+                                    </div>
+                                </div>
                                                                 
                                             <div class="form-group">
                                                 <div class="col-lg-offset-2 col-lg-10">
@@ -138,8 +165,8 @@
 
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        
+                    
 </div>   
 </div>
 <div class="modal fade" id="play" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -197,6 +224,7 @@
 
                 <div class="space15"></div>
                 <table class="table table-striped table-hover table-bordered" id="editable-sample">
+             
                 <thead>
                 <tr>
                     <th>No</th>
@@ -372,5 +400,15 @@
         document.getElementById('dates').innerHTML = dates;
         document.getElementById('ruangan').innerHTML = room;
        });
+</script>
+<script type="text/javascript">
+  $(function(){
+    $("#dates_from").datepicker({
+      autoclose: true,
+      todayHighlight: true,
+      dateFormat: 'yyyy-mm-dd'
+    }).datepicker('update', new Date());
+  });
+
 </script>
 @endsection

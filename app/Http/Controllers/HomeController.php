@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
-
+use App\workspaces;
+use App\clients;
+use App\rooms;
 class HomeController extends Controller
 {
     /**
@@ -25,17 +27,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-          $user = Auth::user();
-       
-        return view('home',compact('user'));
+        $clients = clients::count();
+        $workspaces = workspaces::count();
+        $rooms = rooms::count();
+        $user = Auth::user();
+        return view('home', compact('user','clients','workspaces','rooms'));
     }
-
- public function edit1()
-    {
-        return view('edit');
-    }
-  
-   
-    
-   
 }

@@ -11,9 +11,15 @@ use App\User;
 use Auth;
 use Gate;
 use File;
+use Carbon\Carbon;
 date_default_timezone_set('Asia/Jakarta');
 class wsController extends Controller
 {
+      public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
      public function index()
     {
         
@@ -62,6 +68,7 @@ class wsController extends Controller
     {
         return view('');
     }
+
  
     /**
      * Store a newly created resource in storage.
@@ -71,7 +78,7 @@ class wsController extends Controller
      */
     public function store(Request $request)
     {
-
+          
         if ($request->hasFile('file')){
 
             $filename = $request->file->getClientOriginalName();
@@ -84,6 +91,7 @@ class wsController extends Controller
            $workspaces = new workspaces([
           'id_clients' => $request->get('id_clients'),
           'id_room' => $request->get('id_room'),
+          'dates' => $request->get('dates1'),
           'video' => $name
         ]);
 
@@ -132,7 +140,37 @@ class wsController extends Controller
     {
         //
     }
- 
+  public function search(Request $request)
+    {
+         $from = $request->get('dates_from');
+         $to = $request->get('dates_to') ;
+         $date = str_replace("-", "", $from);
+         $date2 = str_replace("-", "", $to);
+        $input['dates_from'] = Carbon::parse($date)->format('Y-m-d 00:00:00');
+         $input['dates_to'] = Carbon::parse($date2)->format('Y-m-d 00:00:00');
+             $a =  $input['dates_from'];
+
+             $b = $input['dates_to'];
+              $c = explode(' ', $a);
+               $d = explode(' ', $b);
+               $x = implode(" ",$c);
+               $t = implode(" ",$d);
+               $coba = '2018-04-25 00:00:00';
+
+          $workspaces = \DB::table('workspaces')
+         ->join('clients', 'clients.client_id', '=', 'workspaces.id_clients')
+         ->join('rooms', 'rooms.room_id', '=', 'workspaces.id_room')
+         ->select('workspaces.*', 'clients.nama', 'clients.no_account', 'clients.join_date', 'rooms.room')
+         ->whereBetween('dates', array($x, $t))
+         ->orderBy('workspaces_id')
+         ->get();
+
+        
+         $client=clients::all();  
+          $room = rooms::all();
+          $user = Auth::user();
+        return view('workspace', compact('workspaces','user','client','room'));
+    }
     /**
      * Remove the specified resource from storage.
      *

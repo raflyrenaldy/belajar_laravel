@@ -14,13 +14,12 @@ class RoleMiddleware
      * @return mixed
      */
     
-    public function handle($request, Closure $next, $roleName)
+    public function handle($request, Closure $next)
     {
-        if(! $request->user()->hasRole($roleName))
-        {
-            return redirect()
-                ->to('home');
-        }
+         $user = \App\User::where('email', $request->email)->first();
+        if ($user->role_id == '1') {
+            return redirect('/register');
+        }         
         return $next($request);
     }
 }

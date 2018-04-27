@@ -123,9 +123,7 @@
                                                 <div class="col-lg-10">
                                                     <input type="text" class="form-control" name="room" id="room">
                                                 </div>
-                                            </div>
-                                            
-                                                                      
+                                            </div>                    
                                             <div class="form-group">
                                                 <div class="col-lg-offset-2 col-lg-10">
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

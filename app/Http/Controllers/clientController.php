@@ -8,6 +8,11 @@ use App\User;
 use Auth;
 class clientController extends Controller
 {
+      public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
          $clients= clients::orderBy('client_id','asc')->get();

@@ -11,8 +11,7 @@
   <title>AdminX</title>
    <!--ios7-->
     <link rel="stylesheet" type="text/css" href="js/ios-switch/switchery.css" />
-
-    <!--icheck-->
+      <!--icheck-->
     <link href="js/iCheck/skins/minimal/minimal.css" rel="stylesheet">
     <link href="js/iCheck/skins/minimal/red.css" rel="stylesheet">
     <link href="js/iCheck/skins/minimal/green.css" rel="stylesheet">
@@ -48,7 +47,8 @@
   <link href="js/iCheck/skins/square/red.css" rel="stylesheet">
   <link href="js/iCheck/skins/square/blue.css" rel="stylesheet">
   <!--dashboard calendar-->
-  <link href="css/clndr.css" rel="stylesheet">
+<link href="css/clndr.css" rel="stylesheet">
+
   <link rel="stylesheet" href="js/data-tables/DT_bootstrap.css" />
   <!--Morris Chart CSS -->
   <link rel="stylesheet" href="js/morris-chart/morris.css">
@@ -77,33 +77,18 @@
 
         <!--logo and iconic logo start-->
         <div class="logo">
-            <a href="index.html"><img src="images/logo.png" alt=""></a>
+            <a href="{{URL::to('/')}}"><img src="images/logo.png" alt=""></a>
         </div>
 
         <div class="logo-icon text-center">
-            <a href="index.html"><img src="images/logo_icon.png" alt=""></a>
+            <a href="{{URL::to('/')}}"><img src="images/logo_icon.png" alt=""></a>
         </div>
         <!--logo and iconic logo end-->
 
         <div class="left-side-inner">
 
             <!-- visible to small devices only -->
-            <div class="visible-xs hidden-sm hidden-md hidden-lg">
-                <div class="media logged-user">
-                    <img alt="" src="images/photos/user-avatar.png" class="media-object">
-                    <div class="media-body">
-                        <h4><a href="#">John Doe</a></h4>
-                        <span>"Hello There..."</span>
-                    </div>
-                </div>
-
-                <h5 class="left-nav-title">Account Information</h5>
-                <ul class="nav nav-pills nav-stacked custom-nav">
-                  <li><a href="#"><i class="fa fa-user"></i> <span>Profile</span></a></li>
-                  <li><a href="#"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
-                  <li><a href="#"><i class="fa fa-sign-out"></i> <span>Sign Out</span></a></li>
-                </ul>
-            </div>
+            
 
             <!--sidebar nav start-->
             <ul class="nav nav-pills nav-stacked custom-nav">
@@ -185,6 +170,8 @@
 <script src="js/calendar/evnt.calendar.init.js"></script>
 <script src="js/calendar/moment-2.2.1.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+
+<!--editable-->
 <script type="text/javascript" src="js/data-tables/jquery.dataTables.js"></script>
 <script type="text/javascript" src="js/data-tables/DT_bootstrap.js"></script>
 <script src="js/editable-table.js"></script>
