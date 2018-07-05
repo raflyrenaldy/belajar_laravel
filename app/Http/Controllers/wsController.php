@@ -182,7 +182,7 @@ class wsController extends Controller
       
         $workspaces = workspaces::findOrFail($request->workspaces_id);
        
-    File::delete($workspaces->photo);
+    unlink(storage_path('app\public\upload/').$workspaces->video);
         $workspaces->delete();
         return back();
     }

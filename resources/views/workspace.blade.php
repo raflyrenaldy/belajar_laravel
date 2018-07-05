@@ -102,7 +102,7 @@
 
                                     <div class="modal-body">
 
-                                        <form class="form-horizontal" role="form" method="post" action="{{url('workspace')}}" enctype="multipart/form-data">
+                                        <form class="form-horizontal" role="form" method="post" action="{{url('workspace')}}" enctype="multipart/form-data" id="formUpload">
                                             <div class="form-group">
                                 {{csrf_field()}}
                         <label class="col-sm-2 col-sm-2 control-label">Client</label>
@@ -153,10 +153,14 @@
                                         <input size="16" type="text" name="dates1" id="dates1" value="<?php echo date("Y-m-d");?>" readonly class="form_datetime form-control">
                                     </div>
                                 </div>
-                                                                
+                                                          <div class="progress" style="display: none">
+  <div id="progress-bar" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+    <span id="current-progress"></span>
+  </div>
+</div>       
                                             <div class="form-group">
                                                 <div class="col-lg-offset-2 col-lg-10">
-                                                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#saveButton">Submit</button>
+                                                    <button type="submit" class="btn btn-primary" id="submit" name="submit">Submit</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -221,6 +225,7 @@
 
                                     </div>
                                 </div>
+
 
                 <div class="space15"></div>
                 <table class="table table-striped table-hover table-bordered" id="editable-sample">
@@ -354,25 +359,7 @@
 <script src="/js/jquery.iframe-transport.js"></script>
 <script src="/js/jquery.fileupload.js"></script>
 <script>
-    $(function () {
-        $('#fileupload').fileupload({
-            dataType: 'json',
-            add: function (e, data) {
-                $('#loading').text('Uploading...');
-                data.submit();
-            },
-            done: function (e, data) {
-                $.each(data.result.files, function (index, file) {
-                    $('<p/>').html(file.name + ' (' + file.size + ' KB)').appendTo($('#files_list'));
-                    if ($('#file_ids').val() != '') {
-                        $('#file_ids').val($('#file_ids').val() + ',');
-                    }
-                    $('#file_ids').val($('#file_ids').val() + file.fileID);
-                });
-                $('#loading').text('');
-            }
-        });
-    });
+  
 
     
 </script>
@@ -401,14 +388,53 @@
         document.getElementById('ruangan').innerHTML = room;
        });
 </script>
-<script type="text/javascript">
-  $(function(){
-    $("#dates_from").datepicker({
-      autoclose: true,
-      todayHighlight: true,
-      dateFormat: 'yyyy-mm-dd'
-    }).datepicker('update', new Date());
-  });
 
+<script type="text/javascript">
+        $('#formUpload').on("submit", function (e) {
+             $('#myModal-1').modal({
+                        backdrop: 'static',
+                        keyboard: true 
+                }); 
+            $(".progress").show();
+
+            var formData = new FormData(this);
+            var formURL = $("#formUpload").attr("action");
+            $.ajax(
+                    {
+                        url: formURL,
+                        type: "POST",
+                        data: formData,
+                        contentType: false,
+                        processData: false,
+                        success: function (data, textStatus, jqXHR)
+                        {
+                            var data = jqXHR.responseJSON;
+                            window.location.href = data.url;
+                        },
+                        error: function (jqXHR, textStatus, errorThrown)
+                        {
+                            var data = jqXHR.responseJSON;
+                            errorsHtml = '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><ul>';
+ 
+                            $.each(data, function (key, value) {
+                                errorsHtml += '<li>' + value[0] + '</li>';
+                            });
+                            errorsHtml += '</ul></di>';
+ 
+                            $(".modalError").html(errorsHtml);
+                        },
+                        xhr: function () {
+                            var xhr = $.ajaxSettings.xhr();
+                            xhr.upload.onprogress = function (e) {
+                                $(".progress-bar").attr("style", "width:" + Math.floor(e.loaded / e.total * 100) + "%");
+                                $(".progress-bar").html(Math.floor(e.loaded / e.total * 100) + "%");
+                            };
+                            return xhr;
+                        },
+                    });
+            e.preventDefault();
+            e.unbind();
+        });
+   
 </script>
 @endsection
